@@ -12,11 +12,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.coolweather.android.R;
-import com.coolweather.android.WeatherActivity;
-import com.coolweather.android.gson.Weather;
-import com.coolweather.android.util.HttpUtil;
-import com.coolweather.android.util.Utility;
+//import com.coolweather.android.R;
+//import com.example.coolweather.WeatherActivity;
+import com.example.coolweather.gson.Weather;
+import com.example.coolweather.util.HttpUtil;
+import com.example.coolweather.util.Utility;
 
 import java.io.IOException;
 
@@ -56,6 +56,7 @@ public class AutoUpdateService extends Service {
             Weather weather = Utility.handleWeatherResponse(weatherString);
             String weatherId = weather.basic.weatherId;
             String weatherUrl = "http://guolin.tech/api/weather?cityid=" + weatherId + "&key=bc0418b57b2d4918819d3974ac1285d9";
+            //String weatherUrl = "https://free-api.heweather.com/v5/weather?cityid=\" + weatherId + \"&key=2977075658de4c67ac961cc7460123a3";
             HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
